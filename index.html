@@ -72,6 +72,18 @@ textarea {
   white-space: pre-line;
 }
 
+/* TOTAL KHUSUS */
+.total-box {
+  margin-top: 20px;
+  padding: 26px;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border-radius: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+
 button {
   margin-top: 26px;
   width: 100%;
@@ -149,10 +161,17 @@ button {
       Keranjang masih kosong
     </div>
 
+    <!-- TOTAL TERPISAH -->
+    
+
     <label>Catatan Tambahan</label>
     <textarea name="catatan"></textarea>
 
     <input type="hidden" name="detail_pesanan" id="detail_pesanan">
+
+    <div class="total-box" id="totalBox">
+      TOTAL: Rp 0
+    </div>
 
     <button type="submit">
       Pesan Sekarang
@@ -218,6 +237,7 @@ function renderKeranjang() {
   if (keranjang.length === 0) {
     document.getElementById("keranjangBox").innerText =
       "Keranjang masih kosong";
+    document.getElementById("totalBox").innerText = "TOTAL: Rp 0";
     document.getElementById("detail_pesanan").value = "";
     return;
   }
@@ -232,10 +252,12 @@ ${item.porsi} porsi (${pcsTotal} pcs) = Rp ${subtotal.toLocaleString("id-ID")}
 ❌ Batal item ini\n\n`;
   });
 
-  teks += `TOTAL: Rp ${totalHarga.toLocaleString("id-ID")}`;
-
   document.getElementById("keranjangBox").innerText = teks;
-  document.getElementById("detail_pesanan").value = teks;
+  document.getElementById("totalBox").innerText =
+    `TOTAL: Rp ${totalHarga.toLocaleString("id-ID")}`;
+
+  document.getElementById("detail_pesanan").value =
+    teks + `\nTOTAL: Rp ${totalHarga.toLocaleString("id-ID")}`;
 
   document.getElementById("keranjangBox").onclick = function(e) {
     if (e.target.innerText.includes("❌")) {
