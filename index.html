@@ -2,14 +2,11 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="favicon.png">
-<title>Total FOODball - Pesan Makanan</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total FOODball</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -17,14 +14,12 @@ body {
   background: #fff;
 }
 
-/* FULL LAYAR */
 .container {
   min-height: 100vh;
   width: 100%;
   padding: 26px;
 }
 
-/* HEADER */
 .header {
   text-align: center;
   margin-bottom: 36px;
@@ -35,7 +30,6 @@ body {
   height: 130px;
   border-radius: 50%;
   border: 4px solid #000;
-  object-fit: cover;
 }
 
 .header h2 {
@@ -46,57 +40,43 @@ body {
 .header p {
   font-size: 18px;
   color: #666;
-  margin: 0;
 }
 
-/* LABEL */
 label {
   display: block;
-  margin-top: 30px;
+  margin-top: 26px;
   font-size: 22px;
   font-weight: 600;
 }
 
-/* INPUT & SELECT EXTRA BESAR */
-input, select {
+input, select, textarea {
   width: 100%;
   margin-top: 14px;
-  padding: 22px 20px;
-  font-size: 24px;          /* 🔥 TEKS BESAR */
+  padding: 20px;
+  font-size: 22px;
   border-radius: 18px;
   border: 2px solid #ccc;
-  min-height: 80px;         /* 🔥 TINGGI */
 }
 
-/* TEXTAREA EXTRA BESAR */
 textarea {
-  width: 100%;
-  margin-top: 14px;
-  padding: 22px 20px;
-  font-size: 24px;
-  border-radius: 18px;
-  border: 2px solid #ccc;
-  min-height: 220px;        /* 🔥 SUPER LEGA */
+  min-height: 180px;
   resize: none;
 }
 
-/* TOTAL */
 .price-box {
-  margin-top: 36px;
-  padding: 26px;
+  margin-top: 20px;
+  padding: 22px;
   background: #f1f1f1;
   border-radius: 18px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 20px;
+  white-space: pre-line;
 }
 
-/* TOMBOL SUPER EXTRA BESAR */
 button {
-  margin-top: 44px;
+  margin-top: 26px;
   width: 100%;
-  min-height: 90px;        /* 🔥 JEMPOL RAMAH */
-  font-size: 26px;
+  min-height: 80px;
+  font-size: 24px;
   font-weight: bold;
   background: #000;
   color: #fff;
@@ -105,15 +85,10 @@ button {
   cursor: pointer;
 }
 
-button:active {
-  transform: scale(0.97);
-}
-
-/* FOOTER */
 .footer {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   color: #777;
 }
 </style>
@@ -138,50 +113,136 @@ button:active {
     <input type="tel" name="whatsapp" required>
 
     <label>Pilih Menu</label>
-    <select name="menu" id="menu" onchange="hitungTotal()" required>
+    <select id="menu" onchange="updateHargaPreview()">
       <option value="">-- Pilih Menu --</option>
-      <option value="Mozzarella Nashville" data-harga="15000">Mozzarella Nashville</option>
-      <option value="Mie Goreng" data-harga="5000">Mie Goreng</option>
-      <option value="Sosis Bakar" data-harga="5000">Sosis Bakar</option>
+      <option value="Sempol Mie" data-harga="5000" data-pcs="4">
+        Sempol Mie (1 porsi = 4 pcs)
+      </option>
+      <option value="Mozzarella Nashville" data-harga="15000" data-pcs="1">
+        Mozzarella Nashville
+      </option>
+      <option value="Potato Spiral" data-harga="15000" data-pcs="1">
+        Potato Spiral
+      </option>
+      <option value="Mie Level" data-harga="5000" data-pcs="1">
+        Mie Level
+      </option>
+      <option value="Churros Oreo" data-harga="12000" data-pcs="5">
+        Churros Oreo (1 porsi = 5 pcs)
+      </option>
     </select>
 
-    <label>Jumlah</label>
-    <input type="number" id="jumlah" name="jumlah" min="1" value="1"
-           onchange="hitungTotal()" onkeyup="hitungTotal()" required>
+    <label>Jumlah Porsi</label>
+    <input type="number" id="jumlah" value="1" min="1" oninput="updateHargaPreview()">
 
-    
+    <!-- PREVIEW HARGA -->
+    <div class="price-box" id="hargaPreview">
+      Pilih menu untuk melihat harga
+    </div>
+
+    <button type="button" onclick="tambahKeKeranjang()">
+      ➕ Tambah ke Keranjang
+    </button>
+
+    <!-- KERANJANG -->
+    <div class="price-box" id="keranjangBox">
+      Keranjang masih kosong
+    </div>
 
     <label>Catatan Tambahan</label>
     <textarea name="catatan"></textarea>
 
-    <div class="price-box" id="totalText">Total: Rp 0</div>
+    <input type="hidden" name="detail_pesanan" id="detail_pesanan">
 
-    <input type="hidden" name="total_harga" id="total_harga">
-
-    <button type="submit">Pesan Sekarang</button>
+    <button type="submit">
+      Pesan Sekarang
+    </button>
 
   </form>
 
-  <div class="footer">© 2026 by Total FOODball team</div>
-
+  <div class="footer">©2026 by Total FOODball team</div>
 </div>
 
 <script>
-function hitungTotal() {
+let keranjang = [];
+
+function updateHargaPreview() {
   const menu = document.getElementById("menu");
   const jumlah = document.getElementById("jumlah").value;
   const selected = menu.options[menu.selectedIndex];
-  const harga = selected.getAttribute("data-harga");
+  const box = document.getElementById("hargaPreview");
 
-  if (harga && jumlah > 0) {
-    const total = harga * jumlah;
-    const format = "Rp " + total.toLocaleString("id-ID");
-    document.getElementById("totalText").innerText = "Total: " + format;
-    document.getElementById("total_harga").value = format;
-  } else {
-    document.getElementById("totalText").innerText = "Total: Rp 0";
-    document.getElementById("total_harga").value = "";
+  if (!selected.value) {
+    box.innerText = "Pilih menu untuk melihat harga";
+    return;
   }
+
+  const harga = parseInt(selected.dataset.harga);
+  const porsi = parseInt(jumlah) || 1;
+  const total = harga * porsi;
+
+  box.innerText =
+    `Harga ${selected.value}
+Rp ${total.toLocaleString("id-ID")}`;
+}
+
+function tambahKeKeranjang() {
+  const menu = document.getElementById("menu");
+  const jumlah = document.getElementById("jumlah");
+  const selected = menu.options[menu.selectedIndex];
+
+  if (!selected.value) {
+    alert("Pilih menu dulu");
+    return;
+  }
+
+  keranjang.push({
+    nama: selected.value,
+    harga: parseInt(selected.dataset.harga),
+    pcs: parseInt(selected.dataset.pcs),
+    porsi: parseInt(jumlah.value)
+  });
+
+  renderKeranjang();
+}
+
+function hapusItem(index) {
+  keranjang.splice(index, 1);
+  renderKeranjang();
+}
+
+function renderKeranjang() {
+  let teks = "";
+  let totalHarga = 0;
+
+  if (keranjang.length === 0) {
+    document.getElementById("keranjangBox").innerText =
+      "Keranjang masih kosong";
+    document.getElementById("detail_pesanan").value = "";
+    return;
+  }
+
+  keranjang.forEach((item, i) => {
+    const subtotal = item.harga * item.porsi;
+    const pcsTotal = item.pcs * item.porsi;
+    totalHarga += subtotal;
+
+    teks += `${i + 1}. ${item.nama}
+${item.porsi} porsi (${pcsTotal} pcs) = Rp ${subtotal.toLocaleString("id-ID")}
+❌ Batal item ini\n\n`;
+  });
+
+  teks += `TOTAL: Rp ${totalHarga.toLocaleString("id-ID")}`;
+
+  document.getElementById("keranjangBox").innerText = teks;
+  document.getElementById("detail_pesanan").value = teks;
+
+  document.getElementById("keranjangBox").onclick = function(e) {
+    if (e.target.innerText.includes("❌")) {
+      const index = [...this.innerText.matchAll(/❌/g)].indexOf(e.target);
+      hapusItem(index);
+    }
+  };
 }
 </script>
 
