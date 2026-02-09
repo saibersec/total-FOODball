@@ -20,30 +20,30 @@ body {
 .container {
   min-height: 100vh;
   width: 100%;
-  padding: 22px;
+  padding: 26px;
 }
 
 /* HEADER */
 .header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
 }
 
 .header img {
-  width: 110px;
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   border: 4px solid #000;
   object-fit: cover;
 }
 
 .header h2 {
-  font-size: 28px;
-  margin: 14px 0 6px;
+  font-size: 32px;
+  margin: 18px 0 8px;
 }
 
 .header p {
-  font-size: 16px;
+  font-size: 18px;
   color: #666;
   margin: 0;
 }
@@ -51,68 +51,68 @@ body {
 /* LABEL */
 label {
   display: block;
-  margin-top: 24px;
-  font-size: 18px;
+  margin-top: 30px;
+  font-size: 22px;
   font-weight: 600;
 }
 
-/* INPUT & SELECT SUPER BESAR */
+/* INPUT & SELECT EXTRA BESAR */
 input, select {
   width: 100%;
-  margin-top: 12px;
-  padding: 18px 16px;
-  font-size: 20px;
-  border-radius: 14px;
-  border: 1.5px solid #ccc;
-  min-height: 64px; /* 🔥 BIKIN TEBAL */
+  margin-top: 14px;
+  padding: 22px 20px;
+  font-size: 24px;          /* 🔥 TEKS BESAR */
+  border-radius: 18px;
+  border: 2px solid #ccc;
+  min-height: 80px;         /* 🔥 TINGGI */
 }
 
-/* TEXTAREA SUPER BESAR */
+/* TEXTAREA EXTRA BESAR */
 textarea {
   width: 100%;
-  margin-top: 12px;
-  padding: 18px 16px;
-  font-size: 20px;
-  border-radius: 14px;
-  border: 1.5px solid #ccc;
-  min-height: 160px; /* 🔥 LUAS */
+  margin-top: 14px;
+  padding: 22px 20px;
+  font-size: 24px;
+  border-radius: 18px;
+  border: 2px solid #ccc;
+  min-height: 220px;        /* 🔥 SUPER LEGA */
   resize: none;
 }
 
 /* TOTAL */
 .price-box {
-  margin-top: 28px;
-  padding: 20px;
+  margin-top: 36px;
+  padding: 26px;
   background: #f1f1f1;
-  border-radius: 14px;
+  border-radius: 18px;
   text-align: center;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
 }
 
-/* TOMBOL SUPER BESAR */
+/* TOMBOL SUPER EXTRA BESAR */
 button {
-  margin-top: 36px;
+  margin-top: 44px;
   width: 100%;
-  min-height: 72px; /* 🔥 TOMBOL TEBAL */
-  font-size: 22px;
+  min-height: 90px;        /* 🔥 JEMPOL RAMAH */
+  font-size: 26px;
   font-weight: bold;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 18px;
+  border-radius: 22px;
   cursor: pointer;
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #777;
 }
 </style>
@@ -151,8 +151,6 @@ button:active {
     <div class="price-box" id="totalText">Total: Rp 0</div>
 
     <input type="hidden" name="total_harga" id="total_harga">
-
-    
 
     <label>Catatan Tambahan</label>
     <textarea name="catatan"></textarea>
