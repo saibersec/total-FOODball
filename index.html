@@ -6,19 +6,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #111;
+  background: #fff;
 }
 
 /* FULL LAYAR */
 .container {
   min-height: 100vh;
   width: 100%;
-  background: #fff;
   padding: 22px;
 }
 
@@ -33,6 +34,7 @@ body {
   height: 110px;
   border-radius: 50%;
   border: 4px solid #000;
+  object-fit: cover;
 }
 
 .header h2 {
@@ -42,37 +44,46 @@ body {
 
 .header p {
   font-size: 16px;
-  color: #555;
+  color: #666;
+  margin: 0;
 }
 
 /* LABEL */
 label {
   display: block;
-  margin-top: 22px;
+  margin-top: 24px;
   font-size: 18px;
   font-weight: 600;
 }
 
-/* INPUT SUPER BESAR */
-input, select, textarea {
+/* INPUT & SELECT SUPER BESAR */
+input, select {
   width: 100%;
-  margin-top: 10px;
-  padding: 20px;              /* 🔥 LEBIH TEBAL */
-  font-size: 20px;            /* 🔥 TEKS BESAR */
-  border-radius: 14px;        /* 🔥 BULAT */
+  margin-top: 12px;
+  padding: 18px 16px;
+  font-size: 20px;
+  border-radius: 14px;
   border: 1.5px solid #ccc;
+  min-height: 64px; /* 🔥 BIKIN TEBAL */
 }
 
+/* TEXTAREA SUPER BESAR */
 textarea {
-  min-height: 120px;          /* 🔥 AREA NULIS LUAS */
+  width: 100%;
+  margin-top: 12px;
+  padding: 18px 16px;
+  font-size: 20px;
+  border-radius: 14px;
+  border: 1.5px solid #ccc;
+  min-height: 160px; /* 🔥 LUAS */
   resize: none;
 }
 
 /* TOTAL */
 .price-box {
-  margin-top: 26px;
+  margin-top: 28px;
   padding: 20px;
-  background: #f0f0f0;
+  background: #f1f1f1;
   border-radius: 14px;
   text-align: center;
   font-size: 22px;
@@ -81,20 +92,25 @@ textarea {
 
 /* TOMBOL SUPER BESAR */
 button {
-  margin-top: 32px;
+  margin-top: 36px;
   width: 100%;
-  padding: 22px;              /* 🔥 JEMPOL FRIENDLY */
-  font-size: 22px;            /* 🔥 TULISAN BESAR */
+  min-height: 72px; /* 🔥 TOMBOL TEBAL */
+  font-size: 22px;
   font-weight: bold;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 16px;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 /* FOOTER */
 .footer {
-  margin-top: 34px;
+  margin-top: 40px;
   text-align: center;
   font-size: 14px;
   color: #777;
