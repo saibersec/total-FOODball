@@ -1,115 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Total FOODball - Pesan Makanan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Total FOODball - Pesan Makanan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --pad: clamp(16px, 4vw, 28px);
-      --text: clamp(13px, 2.5vw, 14px);
-      --title: clamp(20px, 3vw, 24px);
-    }
+<style>
+:root {
+  --pad: 18px;
+  --text: 14px;
+  --title: 22px;
+}
 
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #111, #333);
-      min-height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #111, #333);
+  min-height: 100vh;
+  margin: 0;
+  padding: 12px;
+}
 
-    .container {
-      background: #fff;
-      width: 100%;
-      max-width: 440px;
-      padding: var(--pad);
-      border-radius: 16px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.3);
-    }
+/* CONTAINER */
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 440px;
+  margin: auto;
+  padding: var(--pad);
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
 
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 18px;
+}
 
-    .header img {
-      width: clamp(70px, 18vw, 90px);
-      height: clamp(70px, 18vw, 90px);
-      border-radius: 50%;
-      border: 3px solid #000;
-      object-fit: cover;
-    }
+.header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  object-fit: cover;
+}
 
-    .header h2 {
-      font-size: var(--title);
-      margin: 8px 0 4px;
-    }
+.header h2 {
+  font-size: var(--title);
+  margin: 8px 0 4px;
+}
 
-    .header p {
-      font-size: var(--text);
-      color: #666;
-      margin: 0;
-    }
+.header p {
+  font-size: var(--text);
+  color: #666;
+  margin: 0;
+}
 
-    label {
-      display: block;
-      margin-top: 14px;
-      font-weight: 600;
-      font-size: var(--text);
-    }
+/* FORM */
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: var(--text);
+}
 
-    input, textarea, select {
-      width: 100%;
-      margin-top: 6px;
-      padding: 10px;
-      font-size: var(--text);
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
+/* penting: font 16px agar iPhone tidak zoom */
+input, textarea, select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
-    textarea {
-      resize: none;
-      min-height: 70px;
-    }
+textarea {
+  resize: none;
+  min-height: 70px;
+}
 
-    .price-box {
-      margin-top: 12px;
-      padding: 12px;
-      background: #f4f4f4;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: bold;
-      font-size: clamp(14px, 3vw, 16px);
-    }
+/* TOTAL */
+.price-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
 
-    button {
-      margin-top: 18px;
-      width: 100%;
-      padding: 12px;
-      font-size: clamp(14px, 3vw, 16px);
-      font-weight: bold;
-      background: #000;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-    }
+/* BUTTON */
+button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
 
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #777;
-      margin-top: 16px;
-    }
-  </style>
+button:active {
+  transform: scale(0.98);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 16px;
+}
+
+/* KHUSUS HP KECIL */
+@media (max-width: 480px) {
+  .container {
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .header img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
@@ -131,19 +158,17 @@
     <label>Pilih Menu</label>
     <select name="menu" id="menu" onchange="hitungTotal()" required>
       <option value="">-- Pilih Menu --</option>
-      <option value="Bakso" data-harga="15000">Mozzarella Nashvile</option>
+      <option value="Mozzarella Nashville" data-harga="15000">Mozzarella Nashville</option>
       <option value="Mie Goreng" data-harga="5000">Mie Goreng</option>
       <option value="Sosis Bakar" data-harga="5000">Sosis Bakar</option>
     </select>
 
     <label>Jumlah</label>
-    <input type="number" id="jumlah" name="jumlah" min="1" value="1" onchange="hitungTotal()" onkeyup="hitungTotal()" required>
+    <input type="number" id="jumlah" name="jumlah" min="1" value="1"
+           onchange="hitungTotal()" onkeyup="hitungTotal()" required>
 
-    <div class="price-box" id="totalText">
-      Total: Rp 0
-    </div>
+    <div class="price-box" id="totalText">Total: Rp 0</div>
 
-    <!-- ikut terkirim ke email -->
     <input type="hidden" name="total_harga" id="total_harga">
 
     <label>Alamat Pengiriman</label>
@@ -156,30 +181,27 @@
 
   </form>
 
-  <div class="footer">
-    © 2026 Total FOODball
-  </div>
+  <div class="footer">© 2026 Total FOODball</div>
 
 </div>
 
 <script>
-  function hitungTotal() {
-    const menu = document.getElementById("menu");
-    const jumlah = document.getElementById("jumlah").value;
-    const selected = menu.options[menu.selectedIndex];
-    const harga = selected.getAttribute("data-harga");
+function hitungTotal() {
+  const menu = document.getElementById("menu");
+  const jumlah = document.getElementById("jumlah").value;
+  const selected = menu.options[menu.selectedIndex];
+  const harga = selected.getAttribute("data-harga");
 
-    if (harga && jumlah > 0) {
-      const total = harga * jumlah;
-      const format = "Rp " + total.toLocaleString("id-ID");
-
-      document.getElementById("totalText").innerText = "Total: " + format;
-      document.getElementById("total_harga").value = format;
-    } else {
-      document.getElementById("totalText").innerText = "Total: Rp 0";
-      document.getElementById("total_harga").value = "";
-    }
+  if (harga && jumlah > 0) {
+    const total = harga * jumlah;
+    const format = "Rp " + total.toLocaleString("id-ID");
+    document.getElementById("totalText").innerText = "Total: " + format;
+    document.getElementById("total_harga").value = format;
+  } else {
+    document.getElementById("totalText").innerText = "Total: Rp 0";
+    document.getElementById("total_harga").value = "";
   }
+}
 </script>
 
 </body>
