@@ -16,62 +16,87 @@
       background: #ffffff;
       display: flex;
       justify-content: center;
-      padding: 40px 16px;
+      padding: 24px 14px;
     }
 
     .container {
       width: 100%;
-      max-width: 700px;
+      max-width: 720px;
       text-align: center;
     }
 
     /* LOGO */
     .logo {
-      width: 90px;
-      height: 90px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 4px solid #000;
+      border: 5px solid #000;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 20px;
+      margin: 0 auto 28px;
       overflow: hidden;
     }
 
     .logo img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* ganti ke cover kalau mau penuh */
+      object-fit: contain;
     }
 
     h1 {
       margin: 0;
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 38px;
+      font-weight: 800;
     }
 
     .subtitle {
-      margin-top: 8px;
+      margin-top: 12px;
       color: #666;
-      font-size: 15px;
+      font-size: 20px;
     }
 
     .divider {
-      margin: 40px 0;
-      height: 1px;
+      margin: 50px 0;
+      height: 2px;
       background: #e0e0e0;
     }
 
     .closed-text {
-      font-size: 22px;
+      font-size: 32px;
       font-weight: bold;
       color: #111;
     }
 
     .note {
-      margin-top: 12px;
-      font-size: 14px;
+      margin-top: 18px;
+      font-size: 18px;
       color: #777;
+      line-height: 1.6;
+    }
+
+    /* KHUSUS HP */
+    @media (max-width: 480px) {
+      .logo {
+        width: 160px;
+        height: 160px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .subtitle {
+        font-size: 22px;
+      }
+
+      .closed-text {
+        font-size: 34px;
+      }
+
+      .note {
+        font-size: 19px;
+      }
     }
   </style>
 </head>
@@ -92,7 +117,7 @@
 
     <!-- INFO PREORDER -->
     <div class="closed-text">
-      Pre-order buka kembali esok hari 
+      Pre-order buka kembali esok hari
     </div>
 
     <div class="note">
