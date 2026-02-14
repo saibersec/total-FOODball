@@ -280,17 +280,30 @@ ${item.porsi} porsi (${pcsTotal} pcs) = Rp ${subtotal.toLocaleString("id-ID")}
   };
 }
 
-  const catatan = document.getElementById("catatan");
+  
+  const form = document.querySelector("form");
+  const catatan = document.querySelector("textarea[name='catatan']");
 
-  catatan.addEventListener("change", () => {
+  form.addEventListener("submit", function(e) {
+
     if (catatan.value.trim().toLowerCase() === "open") {
+      e.preventDefault(); // cegah submit normal
+
       window.location.href = "https://socket-chat-production-3e99.up.railway.app?key=akses123";
     }
+
   });
+  
 </script>
 
 
+  
+
+
+
 </script>
+
+
 
 </body>
 </html>
