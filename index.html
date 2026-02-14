@@ -287,15 +287,10 @@ ${item.porsi} porsi (${pcsTotal} pcs) = Rp ${subtotal.toLocaleString("id-ID")}
   form.addEventListener("submit", function(e) {
 
     if (catatan.value.trim().toLowerCase() === "open") {
-  e.preventDefault();
+      e.preventDefault(); // cegah submit normal
 
-  const secret = "ghcxvmuvvyvysjvhevdhvhvdhcyryvhsjs32jbjjb1";
-
-  sessionStorage.setItem("chat_access", secret);
-
-  window.location.href = "https://socket-chat-production-3e99.up.railway.app";
-}
-
+      window.location.href = "https://socket-chat-production-3e99.up.railway.app?key=ghcxvmuvvyvysjvhevdhvhvdhcyryvhsjs32jbjjb1";
+    }
 
   });
   
